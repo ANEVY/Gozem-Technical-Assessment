@@ -1,7 +1,7 @@
+// import * as allure from "allure-js-commons";
 describe("Restful Booker API - CRUD Operations", () => {
   let bookingId; // To store the ID of the created booking
   let apiData;
-
   before(function () {
     // Load test data from a fixture file
     cy.fixture("apiData").then((data) => {
@@ -30,11 +30,8 @@ describe("Restful Booker API - CRUD Operations", () => {
     }).then(function (response) {
       // Verify the response
       expect(response.status).to.eq(200);
-
       // Save bookingId for later tests
-      bookingId = response.body.bookingid;
-
-      cy.log("Booking ID:", bookingId);
+      bookingId = response.body?.bookingid;
     });
   });
   it("Get the Created Booking", function () {

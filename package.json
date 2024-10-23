@@ -1,5 +1,15 @@
 {
+  "scripts": {
+    "clean:folders": "rm -rf allure-results/*",
+    "cy:run-test": "npx cypress run --env allure=true",
+    "generate-allure:report": "allure serve allure-results",
+    "tests": "npm run clean:folders && npm run cy:run-test && npm run generate-allure:report"
+  },
   "devDependencies": {
+    "allure-cypress": "^3.0.5",
     "cypress": "^13.15.0"
+  },
+  "dependencies": {
+    "allure-js-commons": "^3.0.5"
   }
 }
